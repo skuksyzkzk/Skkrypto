@@ -6,7 +6,8 @@ async function main(){
     console.log("Deploying contracts with the account:", deployer.address);
 
     const TokenCtr = await ethers.getContractFactory("customToken");
-
+    const balance = await ethers.provider.getBalance("0xA8c5940592160AC07005A29c9275c425310bF12E");
+    console.log("Balance:", ethers.utils.formatEther(balance));
     const tokenctr = await TokenCtr.deploy("Kim Sung Yeop","KSY");
    
     console.log("KSY deployed to:", tokenctr.target);
